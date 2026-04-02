@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System;
 using Core.Models;
+using System.Linq;
 using System.Text;  // Додаємо для Encoding
 using System.Collections;
 using System.Diagnostics;
@@ -154,6 +155,115 @@ class Program
         else
         {
             Console.WriteLine("Recipe not found");
+        }
+
+        Console.WriteLine("\n=== Extension Method ===");
+
+        string recipeText = "Simple salad with tomatoes";
+
+        int count = recipeText.WordCount();
+
+        Console.WriteLine($"Word count: {count}");
+
+        Console.WriteLine("\n=== Foreach Iteration ===");
+
+        RecipeStorage storage = new RecipeStorage();
+
+        storage.AddRecipe(new Recipe
+        {
+            Name = "Soup",
+            CookingTime = 30,
+            Difficulty = 2,
+            CreatedAt = DateTime.Now,
+            IsVegetarian = true
+        });
+
+        storage.AddRecipe(new Recipe
+        {
+            Name = "Pizza",
+            CookingTime = 40,
+            Difficulty = 3,
+            CreatedAt = DateTime.Now,
+            IsVegetarian = false
+        });
+
+        foreach (var item in storage)
+        {
+            Console.WriteLine(item.Name);
+        }
+
+        Console.WriteLine("\n=== Dictionary Test ===");
+
+        var r1 = new Recipe
+        {
+            Name = "Soup",
+            CookingTime = 30,
+            Difficulty = 2,
+            CreatedAt = DateTime.Now,
+            IsVegetarian = true
+        };
+
+        var r2 = new Recipe
+        {
+            Name = "Burger",
+            CookingTime = 25,
+            Difficulty = 3,
+            CreatedAt = DateTime.Now,
+            IsVegetarian = false
+        };
+
+        // Додаємо в Dictionary
+        storage.AddRecipeWithId(1, r1);
+        storage.AddRecipeWithId(2, r2);
+
+        // Пошук по ID
+        var found = storage.FindById(1);
+
+        if (found != null)
+        {
+            Console.WriteLine($"Found recipe: {found.Name}");
+        }
+
+        // LINQ фільтрація словника
+        Console.WriteLine("\nVegetarian recipes:");
+
+        var vegRecipes = storage.GetVegetarianRecipes();
+
+        foreach (var item in vegRecipes)
+        {
+            Console.WriteLine(item.Name);
+        }
+
+        Console.WriteLine("\n=== HashSet Example ===");
+
+        HashSet<string> tags1 = new HashSet<string>();
+
+        tags1.Add("Salad");
+        tags1.Add("Vegetarian");
+        tags1.Add("Quick");
+
+        // Спроба додати дублікат
+        tags1.Add("Quick");
+
+        Console.WriteLine("Tags in first set:");
+
+        foreach (var tag in tags1)
+        {
+            Console.WriteLine(tag);
+        }
+
+        HashSet<string> tags2 = new HashSet<string>();
+
+        tags2.Add("Quick");
+        tags2.Add("Dinner");
+
+        Console.WriteLine("\nCommon tags:");
+
+        tags1.IntersectWith(tags2);
+
+        foreach (var tag in tags1)
+        {
+            Console.WriteLine(tag);
         }
     }
     static void ChangePrice(Price price)
