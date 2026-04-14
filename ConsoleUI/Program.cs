@@ -65,7 +65,7 @@ class Program
         Console.WriteLine($"Recipe Count: {category.RecipeCount}");
         Console.WriteLine($"Popular: {category.IsPopular}");
 
-        Console.WriteLine("\n=== Boxing / Unboxing ===");
+        /*Console.WriteLine("\n=== Boxing / Unboxing ===");
 
         object obj = 10; // boxing
         int value = (int)obj; // unboxing
@@ -143,7 +143,7 @@ class Program
         {
             Console.WriteLine(name);
         }
-
+        
         Console.WriteLine("\n=== Search Recipe ===");
 
         var foundRecipe = recipes.FirstOrDefault(r => r.Name == "Pizza");
@@ -264,6 +264,81 @@ class Program
         foreach (var tag in tags1)
         {
             Console.WriteLine(tag);
+        }
+        */
+        Recipe r = new Recipe
+        {
+            Name = "Soup",
+            CookingTime = 30
+        };
+
+        Ingredient i = new Ingredient
+        {
+            Name = "Salt",
+            Quantity = 5
+        };
+
+        Category c = new Category
+        {
+            Name = "Main dishes"
+        };
+
+        Console.WriteLine("=== Describe Methods ===");
+
+        r.Describe();
+        i.Describe();
+        c.Describe();
+
+        Console.WriteLine("=== Interface Test ===");
+
+        r.Show();
+        i.Show();
+        c.Show();
+
+        Console.WriteLine("=== Composition Test ===");
+
+        AppController controller = new AppController();
+        controller.ShowConfig();
+
+        Console.WriteLine("=== Aggregation Test ===");
+
+        Recipe r1 = new Recipe
+        {
+            Name = "Borscht",
+            CookingTime = 60,
+            IsVegetarian = false
+        };
+
+        Recipe r2 = new Recipe
+        {
+            Name = "Salad",
+            CookingTime = 15,
+            IsVegetarian = true
+        };
+
+        RecipeStorage storage = new RecipeStorage();
+
+        // додаємо рецепти
+        storage.AddRecipe(r1);
+        storage.AddRecipe(r2);
+
+        // перебір через foreach
+        foreach (var item in storage)
+        {
+            item.Describe();
+        }
+
+        Console.WriteLine("=== Polymorphism Test ===");
+
+        List<BaseEntity> entities = new List<BaseEntity>();
+
+        entities.Add(r);
+        entities.Add(i);
+        entities.Add(c);
+
+        foreach (var entity in entities)
+        {
+            entity.Describe();
         }
     }
     static void ChangePrice(Price price)
