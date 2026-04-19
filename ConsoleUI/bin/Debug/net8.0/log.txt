@@ -1,0 +1,6 @@
+18.04.2026 20:49:21: Program started
+18.04.2026 20:49:21: JSON file created
+18.04.2026 20:49:21: XML file created
+18.04.2026 21:25:48: Program started
+18.04.2026 21:25:48: JSON file created
+18.04.2026 21:25:48: XML file created

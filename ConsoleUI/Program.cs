@@ -265,7 +265,7 @@ class Program
         {
             Console.WriteLine(tag);
         }
-        */
+        
         Recipe r = new Recipe
         {
             Name = "Soup",
@@ -339,6 +339,58 @@ class Program
         foreach (var entity in entities)
         {
             entity.Describe();
+        }
+        */
+
+        List<Recipe> recipes = new List<Recipe>
+{
+    new Recipe
+    {
+        Name = "Soup",
+        CookingTime = 30,
+        Difficulty = 2,
+        CreatedAt = DateTime.Now,
+        IsVegetarian = true
+    },
+
+    new Recipe
+    {
+        Name = "Burger",
+        CookingTime = 25,
+        Difficulty = 3,
+        CreatedAt = DateTime.Now,
+        IsVegetarian = false
+    }
+};
+
+        JsonManager json = new JsonManager();
+
+        // Збереження
+        json.SaveRecipes(recipes);
+
+        Console.WriteLine("Recipes saved to JSON.");
+
+        // Завантаження
+        var loadedRecipes = json.LoadRecipes();
+
+        Console.WriteLine("Loaded recipes:");
+
+        foreach (var r in loadedRecipes)
+        {
+            Console.WriteLine($"{r.Name} | {r.CookingTime}");
+        }
+
+        XmlManager xml = new XmlManager();
+
+        // Експорт тільки вегетаріанських рецептів
+        xml.ExportVegetarianRecipes(recipes);
+        xml.CheckXmlFile();
+
+        using (ResourceManager rm = new ResourceManager("log.txt"))
+        {
+            rm.WriteLog("Program started");
+            rm.WriteLog("JSON file created");
+            rm.WriteLog("XML file created");
         }
     }
     static void ChangePrice(Price price)

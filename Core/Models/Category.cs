@@ -8,6 +8,9 @@ namespace Core.Models
 {
     public class Category : BaseEntity, IShow
     {
+        public Category()
+        {
+        }
         public string Name { get; set; }        // Назва категорії (супи, десерти)
         public string Description { get; set; } // Опис категорії
         public int RecipeCount { get; set; }    // Кількість рецептів у категорії

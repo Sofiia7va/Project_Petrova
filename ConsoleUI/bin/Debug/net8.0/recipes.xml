@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Recipes>
+  <Recipe>
+    <Name>Soup</Name>
+    <CookingTime>30</CookingTime>
+    <Difficulty>2</Difficulty>
+    <CreatedAt>2026-04-18T21:25:48.5980892+03:00</CreatedAt>
+    <IsVegetarian>true</IsVegetarian>
+  </Recipe>
+</Recipes>

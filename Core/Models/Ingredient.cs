@@ -8,6 +8,9 @@ namespace Core.Models
 {
     public class Ingredient : BaseEntity, IShow
     {
+        public Ingredient()
+        {
+        }
         public string Name { get; set; }       // Назва інгредієнта
         public double Quantity { get; set; }   // Кількість
         public string Unit { get; set; }       // Одиниця вимірювання (грам, мл, шт.)

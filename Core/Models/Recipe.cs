@@ -8,6 +8,9 @@ namespace Core.Models
 {
     public class Recipe : BaseEntity, IShow
     {
+        public Recipe()
+        {
+        }
         public string Name { get; set; }          // Назва рецепта
         public int CookingTime { get; set; }      // Час приготування в хвилинах
         public double Difficulty { get; set; }    // Складність від 1 до 5
