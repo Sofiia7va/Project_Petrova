@@ -1,0 +1,34 @@
+[
+  {
+    "Name": "Borshch",
+    "CookingTime": 60,
+    "Difficulty": 3,
+    "CreatedAt": "2026-04-22T12:26:04.6124613+03:00",
+    "IsVegetarian": false,
+    "Id": 0
+  },
+  {
+    "Name": "Salad",
+    "CookingTime": 15,
+    "Difficulty": 1,
+    "CreatedAt": "2026-04-22T12:26:04.6143167+03:00",
+    "IsVegetarian": true,
+    "Id": 0
+  },
+  {
+    "Name": "Cake",
+    "CookingTime": 45,
+    "Difficulty": 2,
+    "CreatedAt": "2026-04-22T12:26:07.5393604+03:00",
+    "IsVegetarian": true,
+    "Id": 0
+  },
+  {
+    "Name": "Burger",
+    "CookingTime": 25,
+    "Difficulty": 1.5,
+    "CreatedAt": "2026-04-22T12:26:36.0564959+03:00",
+    "IsVegetarian": false,
+    "Id": 0
+  }
+]
