@@ -1,0 +1,37 @@
+﻿<Window x:Class="RecipeWPF.RecipeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Додавання рецепта"
+        Height="400"
+        Width="350"
+        WindowStartupLocation="CenterOwner">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Назва:" Grid.Row="0" Margin="0,0,0,5"/>
+        <TextBox x:Name="textBoxName" Grid.Row="1" Margin="0,0,0,10"/>
+
+        <TextBlock Text="Час приготування:" Grid.Row="2" Margin="0,0,0,5"/>
+        <TextBox x:Name="textBoxCookingTime" Grid.Row="3" Margin="0,0,0,10"/>
+
+        <CheckBox x:Name="checkBoxVegetarian"
+                  Grid.Row="4"
+                  Content="Вегетаріанський"
+                  Margin="0,0,0,10"/>
+
+        <Button Grid.Row="5"
+                Content="OK"
+                Width="100"
+                Height="35"
+                HorizontalAlignment="Center"
+                Click="ButtonOK_Click"/>
+    </Grid>
+</Window>
