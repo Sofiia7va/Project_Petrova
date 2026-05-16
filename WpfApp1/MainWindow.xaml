@@ -45,24 +45,21 @@
                     Margin="10">
 
             <Button x:Name="buttonAdd"
-                    Content="Додати"
-                    Click="ButtonAdd_Click"/>
+        Content="Додати"
+        Command="{Binding AddCommand}"/>
 
             <Button x:Name="buttonEdit"
-                    Content="Редагувати"
-                    Click="ButtonEdit_Click"/>
+                    Content="Редагувати"/>
 
             <Button x:Name="buttonDelete"
-                    Content="Видалити"
-                    Click="ButtonDelete_Click"/>
+        Content="Видалити"
+        Command="{Binding DeleteCommand}"/>
 
             <Button x:Name="buttonSave"
-                    Content="Зберегти"
-                    Click="ButtonSave_Click"/>
+                    Content="Зберегти"/>
 
             <Button x:Name="buttonLoad"
-                    Content="Завантажити"
-                    Click="ButtonLoad_Click"/>
+                    Content="Завантажити"/>
         </StackPanel>
 
         <!-- Таблиця -->
@@ -72,6 +69,7 @@
                 Padding="10">
 
             <DataGrid x:Name="dataGridRecipes"
+                      ItemsSource="{Binding Recipes}"
                       AutoGenerateColumns="False"
                       CanUserAddRows="False"
                       IsReadOnly="True">
